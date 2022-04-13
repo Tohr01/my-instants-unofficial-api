@@ -36,7 +36,7 @@ class Parser {
      - Returns: Array of buttons (type button) or nil
      */
     func get_buttons(from url: URL, page: Int = 1) async throws -> [button]? {
-        let url_string: String = url.absoluteString.appending("?page\(page)")
+        let url_string: String = url.absoluteString.appending("&page=\(page)")
         let new_url = URL(string: url_string)!
         
         do {
