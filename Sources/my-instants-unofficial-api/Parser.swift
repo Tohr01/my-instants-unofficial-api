@@ -38,6 +38,7 @@ class Parser {
     func get_buttons(from url: URL, page: Int = 1) async throws -> [button]? {
         let url_string: String = url.absoluteString.appending("?page\(page)")
         let new_url = URL(string: url_string)!
+        
         do {
             // Get html from url
             let html: String? = try await get_html(from: new_url)
@@ -57,16 +58,18 @@ class Parser {
                     buttons = []
                     for elem in elem_arr {
                         let audio_raw = try elem.getElementsByClass("small-button").attr("onmousedown")
-                        let title = try elem.select("a").text()
+                        let title = try elem.getElementsByClass("instant-link").text()
 
                         if !audio_raw.isEmpty, !title.isEmpty {
-                            
                             // Slice extracted audio url from play'([url])' -> [url]
-                            let start = audio_raw.index(audio_raw.startIndex, offsetBy: 6)
-                            let end = audio_raw.index(audio_raw.endIndex, offsetBy: -2)
-                            let audio_path = audio_raw[start ..< end]
+                            let start = String.Index(utf16Offset: 7, in: audio_raw)
+                            let end = audio_raw.lastIndex(of: "'")
+                            if let end = end {
+                                let audio_path = audio_raw[start..<end]
+                                
+                                buttons?.append(button(name: title, audio_url: URL(string: "https://www.myinstants.com")!.appendingPathComponent(String(audio_path))))
+                            }
                             
-                            buttons?.append(button(name: title, audio_url: URL(string: "https://www.myinstants.com")!.appendingPathComponent(String(audio_path))))
                         }
                     }
                 }
