@@ -60,11 +60,12 @@ class Parser {
                         let title = try elem.select("a").text()
 
                         if !audio_raw.isEmpty, !title.isEmpty {
+                            
                             // Slice extracted audio url from play'([url])' -> [url]
                             let start = audio_raw.index(audio_raw.startIndex, offsetBy: 6)
-                            let end = audio_raw.index(audio_raw.endIndex, offsetBy: -3)
+                            let end = audio_raw.index(audio_raw.endIndex, offsetBy: -2)
                             let audio_path = audio_raw[start ..< end]
-
+                            
                             buttons?.append(button(name: title, audio_url: URL(string: "https://www.myinstants.com")!.appendingPathComponent(String(audio_path))))
                         }
                     }
