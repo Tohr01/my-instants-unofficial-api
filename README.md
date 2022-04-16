@@ -5,7 +5,7 @@
 ## Installation
 1. Add this line to your Package.swift
 ```
-.package(url: "https://github.com/Tohr01/my-instants-unofficial-api.git", from: "1.0.1")
+.package(url: "https://github.com/Tohr01/my-instants-unofficial-api.git", from: "1.0.2")
 ```
 
 ## Usage example
