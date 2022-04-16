@@ -12,7 +12,7 @@ public struct button {
     var audio_url: URL
     
     public init(name: String, audio_url: URL) {
-        self.name = name
+        self.name = name 
         self.audio_url = audio_url
     }
 }
