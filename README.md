@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Tohr01/my-instants-unofficial-api/blob/main/pictures/banner.jpg" alt="An unofficial API for myinstants.com"/>
+  <img src="https://github.com/Tohr01/my-instants-unofficial-api/blob/main/pictures/banner.jpg" style="object-fit: cover; width: 100%;" alt="An unofficial API for myinstants.com"/>
 </p>
 
 ## Installation
