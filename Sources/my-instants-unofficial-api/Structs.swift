@@ -13,6 +13,6 @@ public struct button {
     
     public init(name: String, audio_url: URL) {
         self.name = name
-        self.audio_url = audio_url 
+        self.audio_url = audio_url
     }
 }
