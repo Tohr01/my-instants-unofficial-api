@@ -8,8 +8,8 @@
 import Foundation
 
 public struct button {
-    var name: String
-    var audio_url: URL
+    public var name: String
+    public var audio_url: URL
     
     public init(name: String, audio_url: URL) {
         self.name = name 
